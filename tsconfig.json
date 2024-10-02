@@ -1,0 +1,43 @@
+{
+    "compilerOptions": {
+      /* Basic Options */
+      "target": "ES2021",                        // Versão ES que será usada como saída.
+      "module": "commonjs",                      // Usado para compatibilidade com Node.js.
+      "lib": ["ES2021", "DOM"],                  // Biblioteca padrão utilizada, inclui funcionalidades do ES2021 e APIs do DOM.
+      "allowJs": true,                           // Permite compilar arquivos JavaScript junto com TypeScript.
+      "outDir": "./dist",                        // Pasta de saída para arquivos transpilados.
+      "rootDir": "./src",                        // Pasta raiz do código fonte TypeScript.
+      "strict": true,                            // Habilita todas as verificações rigorosas de tipo.
+      "esModuleInterop": true,                   // Permite a interoperabilidade entre módulos CommonJS e ES.
+      "skipLibCheck": true,                      // Ignora verificação de tipos dentro dos arquivos de declaração de bibliotecas.
+      "forceConsistentCasingInFileNames": true,  // Garante que arquivos sejam importados sempre com o mesmo case.
+      "moduleResolution": "node",                // Resolve módulos do Node.js.
+      
+      /* Decorators */
+      "emitDecoratorMetadata": true,             // Emite metadados de decoradores necessários para bibliotecas como NestJS.
+      "experimentalDecorators": true,            // Ativa suporte a decoradores.
+  
+      /* Source Map */
+      "sourceMap": true,                         // Gera arquivos de mapa de origem para ajudar no debugging.
+  
+      /* Type Checking */
+      "noImplicitAny": false,                    // Desativa erro para variáveis que têm tipo implícito "any".
+      "strictNullChecks": true,                  // Verifica nulls e undefineds de forma rigorosa.
+  
+      /* Incremental Compilation */
+      "incremental": true,                       // Habilita a compilação incremental para melhorar a performance.
+  
+      /* Paths */
+      "baseUrl": ".",                            // Base URL para resolver caminhos relativos.
+      "paths": {
+        "@modules/*": ["src/modules/*"],         // Alias para os módulos.
+        "@controllers/*": ["src/controllers/*"], // Alias para os controllers.
+        "@services/*": ["src/services/*"],       // Alias para os services.
+        "@usecases/*": ["src/usecases/*"],       // Alias para os use cases.
+        "@config/*": ["src/config/*"]            // Alias para a configuração.
+      }
+    },
+    "include": ["src/**/*"],                     // Inclui todos os arquivos TypeScript dentro da pasta "src".
+    "exclude": ["node_modules", "dist"]          // Exclui a pasta node_modules e dist da compilação.
+  }
+  
