@@ -1,2 +1,0 @@
-# feralquest-api
-feral api
