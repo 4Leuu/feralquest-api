@@ -9,7 +9,6 @@ export class CreateUserController implements ICreateUsersController {
     httpRequest: HttpRequest<CreateUserDTO, void, void>
   ): Promise<HttpResponse<User>> {
     try {
-      console.log(httpRequest);
       if (!httpRequest.body) {
         return {
           statusCode: 400,

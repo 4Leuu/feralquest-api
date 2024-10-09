@@ -8,12 +8,10 @@ export class PrismaUpdateUsersRepository implements IUpdateUsersRepository {
   constructor(private readonly prisma: PrismaClient) {}
 
   async updateUsers(updateUserDTO: UpdateUserDTO): Promise<User> {
-    await this.emailExistsOnDatabase(
-      updateUserDTO.email ?? ""
-    );
+    await this.emailExistsOnDatabase(updateUserDTO.email ?? "");
 
-    if(updateUserDTO.password) {
-      updateUserDTO.password = this.hashPassword(updateUserDTO.password);
+    if (updateUserDTO.password) {
+      updateUserDTO.password = await this.hashPassword(updateUserDTO.password);
     }
 
     const updatedUser = await this.prisma.user.update({
@@ -24,7 +22,7 @@ export class PrismaUpdateUsersRepository implements IUpdateUsersRepository {
         firstName: updateUserDTO.firstName,
         lastName: updateUserDTO.lastName,
         email: updateUserDTO.email,
-        password: hashedPassword,
+        password: updateUserDTO.password,
       },
     });
 
@@ -43,7 +41,7 @@ export class PrismaUpdateUsersRepository implements IUpdateUsersRepository {
       },
     });
 
-    if(!databaseEmail) {
+    if (!databaseEmail) {
       throw new Error("Email already exists.");
     }
 
