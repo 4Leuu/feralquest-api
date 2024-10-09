@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 import express from "express";
+import { PrismaClient } from "@prisma/client";
 import { PrismaGetUsersRepository } from "../repositories/getUsers/prismaGetUsers";
 import { GetUsersController } from "../controllers/getUsers/getUsers";
 import { PrismaCreateUsers } from "../repositories/createUsers/prismaCreateUsers";

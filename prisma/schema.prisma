@@ -20,3 +20,30 @@ model User {
   email String @unique
   password String
 }
+
+model Product {
+  id            String       @id @default(uuid()) 
+  name          String
+  fabric        String
+  sizes         Size[]       
+  totalQuantity Int
+  description   String
+  price         Float
+  typeProductId String       
+  typeProduct   TypeProduct  @relation(fields: [typeProductId], references: [id]) 
+}
+
+model Size {
+  size        String
+  quantity    Int
+  productId   String    
+  product     Product   @relation(fields: [productId], references: [id])
+  @@id([size, productId])
+}
+
+model TypeProduct {
+  id         String    @id @default(uuid())
+  type       String
+  products   Product[] 
+}
+
