@@ -15,8 +15,6 @@ export class GetUsersByIdController implements IGetUsersByIdController {
         };
       }
 
-      console.log(httpRequest.params.id);
-
       const user = await this.getUsersById.getUsersById(httpRequest.params.id);
 
       return {

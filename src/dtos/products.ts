@@ -37,5 +37,10 @@ export const updateProductDTO = z.object({
     .optional(),
 });
 
+export const searchById = z.object({
+  id: z.string(),
+});
+
 export type CreateProductDTO = z.infer<typeof createProductDTO>;
 export type UpdateProductDTO = z.infer<typeof updateProductDTO>;
+export type SearchByIdDTO = z.infer<typeof searchById>;

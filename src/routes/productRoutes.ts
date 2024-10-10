@@ -6,6 +6,8 @@ import { PrismaGetProductsRepository } from "../repositories/getProducts/prismaG
 import { GetProductsController } from "../controllers/getProducts/getProducts";
 import { PrismaUpdateProductsRepository } from "../repositories/updateProducts/prismaUpdateProductsRepository";
 import { UpdateProductsController } from "../controllers/updateProducts/updateProducts";
+import { GetProductsByIdController } from "../controllers/getProductById/getProductById";
+import { PrismaGetProductsById } from "../repositories/getProductsById/prismaGetProductsById";
 
 export const productRouter = express();
 
@@ -40,6 +42,16 @@ productRouter.put("/updateProducts", async (req, res) => {
   );
   const { body, statusCode } = await updateProductsController.handle({
     body: req.body,
+  });
+
+  res.status(statusCode).send(body);
+});
+
+productRouter.get("/getProductsById/:id", async (req, res) => {
+  const getProductByIdRepository = new PrismaGetProductsById(prisma);
+  const controller = new GetProductsByIdController(getProductByIdRepository);
+  const { body, statusCode } = await controller.handle({
+    params: req.params,
   });
 
   res.status(statusCode).send(body);
