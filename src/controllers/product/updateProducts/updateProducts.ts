@@ -1,7 +1,7 @@
-import { UpdateProductDTO } from "../../dtos/products";
-import { Products } from "../../models/products";
-import { PrismaUpdateProductsRepository } from "../../repositories/updateProducts/prismaUpdateProductsRepository";
-import { HttpRequest, HttpResponse } from "../protocols";
+import { UpdateProductDTO } from "../../../dtos/products";
+import { Products } from "../../../models/products";
+import { PrismaUpdateProductsRepository } from "../../../repositories/updateProducts/prismaUpdateProductsRepository";
+import { HttpRequest, HttpResponse } from "../../protocols";
 import { IUpdateProductsController } from "./protocols";
 
 export class UpdateProductsController implements IUpdateProductsController {

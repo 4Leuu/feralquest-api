@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { IGetProductsRepository } from "../../controllers/getProducts/protocols";
+import { IGetProductsRepository } from "../../controllers/product/getProducts/protocols";
 import { Products } from "../../models/products";
 
 export class PrismaGetProductsRepository implements IGetProductsRepository {

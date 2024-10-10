@@ -1,6 +1,6 @@
-import { Products } from "../../models/products";
-import { PrismaGetProductsRepository } from "../../repositories/getProducts/prismaGetProductsRepository";
-import { HttpResponse } from "../protocols";
+import { Products } from "../../../models/products";
+import { PrismaGetProductsRepository } from "../../../repositories/getProducts/prismaGetProductsRepository";
+import { HttpResponse } from "../../protocols";
 import { IGetProductsController } from "./protocols";
 
 export class GetProductsController implements IGetProductsController {

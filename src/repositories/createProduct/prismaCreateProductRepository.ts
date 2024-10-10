@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { ICreateProductsRepository } from "../../controllers/createProduct/protocols";
+import { ICreateProductsRepository } from "../../controllers/product/createProduct/protocols";
 import { CreateProductDTO } from "../../dtos/products";
 import { Products } from "../../models/products";
 

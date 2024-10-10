@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { IUpdateProductsRepository } from "../../controllers/updateProducts/protocols";
+import { IUpdateProductsRepository } from "../../controllers/product/updateProducts/protocols";
 import { UpdateProductDTO } from "../../dtos/products";
 import { Products } from "../../models/products";
 

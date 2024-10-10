@@ -1,7 +1,7 @@
-import { UpdateUserDTO } from "../../dtos/users";
-import { User } from "../../models/user";
-import { PrismaUpdateUsersRepository } from "../../repositories/updateUsers/prismaUpdateUsers";
-import { HttpRequest, HttpResponse } from "../protocols";
+import { UpdateUserDTO } from "../../../dtos/users";
+import { User } from "../../../models/user";
+import { PrismaUpdateUsersRepository } from "../../../repositories/updateUsers/prismaUpdateUsers";
+import { HttpRequest, HttpResponse } from "../../protocols";
 import { IUpdateUsersController } from "./protocols";
 
 export class UpdateUserController implements IUpdateUsersController {

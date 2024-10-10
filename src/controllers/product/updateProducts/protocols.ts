@@ -1,6 +1,6 @@
-import { UpdateProductDTO } from "../../dtos/products";
-import { Products } from "../../models/products";
-import { HttpRequest, HttpResponse } from "../protocols";
+import { UpdateProductDTO } from "../../../dtos/products";
+import { Products } from "../../../models/products";
+import { HttpRequest, HttpResponse } from "../../protocols";
 
 export interface IUpdateProductsController {
   handle(

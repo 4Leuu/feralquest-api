@@ -1,7 +1,7 @@
-import { SearchByIdDTO } from "../../dtos/products";
-import { Products } from "../../models/products";
-import { PrismaGetProductsById } from "../../repositories/getProductsById/prismaGetProductsById";
-import { HttpRequest, HttpResponse } from "../protocols";
+import { SearchByIdDTO } from "../../../dtos/products";
+import { Products } from "../../../models/products";
+import { PrismaGetProductsById } from "../../../repositories/getProductsById/prismaGetProductsById";
+import { HttpRequest, HttpResponse } from "../../protocols";
 import { IGetProductByIdController } from "./protocols";
 
 export class GetProductsByIdController implements IGetProductByIdController {

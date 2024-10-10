@@ -1,7 +1,7 @@
-import { CreateProductDTO } from "../../dtos/products";
-import { Products } from "../../models/products";
-import { PrismaCreateProducts } from "../../repositories/createProduct/prismaCreateProductRepository";
-import { HttpRequest, HttpResponse } from "../protocols";
+import { CreateProductDTO } from "../../../dtos/products";
+import { Products } from "../../../models/products";
+import { PrismaCreateProducts } from "../../../repositories/createProduct/prismaCreateProductRepository";
+import { HttpRequest, HttpResponse } from "../../protocols";
 import { ICreateProductsController } from "./protocols";
 
 export class CreateProductController implements ICreateProductsController {

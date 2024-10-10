@@ -1,5 +1,5 @@
-import { Products } from "../../models/products";
-import { HttpResponse } from "../protocols";
+import { Products } from "../../../models/products";
+import { HttpResponse } from "../../protocols";
 
 export interface IGetProductsController {
   handle(): Promise<HttpResponse<Products[]>>;

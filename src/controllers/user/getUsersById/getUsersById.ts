@@ -1,21 +1,22 @@
-import { User } from "../../models/user";
-import { HttpRequest, HttpResponse } from "../protocols";
+import { User } from "@prisma/client";
+import { HttpRequest, HttpResponse } from "../../protocols";
 import { IGetUsersByIdController, IGetUsersByIdRepository } from "./protocols";
+import { SearchByIdDTO } from "../../../dtos/users";
 
 export class GetUsersByIdController implements IGetUsersByIdController {
   constructor(private readonly getUsersById: IGetUsersByIdRepository) {}
   async handle(
-    httpRequest: HttpRequest<void, void, { id: string }>
+    httpRequest: HttpRequest<void, void, SearchByIdDTO>
   ): Promise<HttpResponse<User>> {
     try {
-      if (!httpRequest.params?.id) {
+      if (!httpRequest.params) {
         return {
           statusCode: 400,
           body: "Please specify a params.",
         };
       }
 
-      const user = await this.getUsersById.getUsersById(httpRequest.params.id);
+      const user = await this.getUsersById.getUsersById(httpRequest.params);
 
       return {
         statusCode: 200,

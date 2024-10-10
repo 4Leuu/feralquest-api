@@ -15,5 +15,10 @@ export const updateUserDTO = z.object({
   password: z.string().optional(),
 });
 
+export const searchByIdDTO = z.object({
+  id: z.string(),
+});
+
 export type CreateUserDTO = z.infer<typeof createUserDTO>;
 export type UpdateUserDTO = z.infer<typeof updateUserDTO>;
+export type SearchByIdDTO = z.infer<typeof searchByIdDTO>;

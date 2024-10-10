@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { User } from "../../models/user";
 import { UpdateUserDTO } from "../../dtos/users";
-import { IUpdateUsersRepository } from "../../controllers/updateUsers/protocols";
+import { IUpdateUsersRepository } from "../../controllers/user/updateUsers/protocols";
 import bcrypt from "bcrypt";
 
 export class PrismaUpdateUsersRepository implements IUpdateUsersRepository {

@@ -1,13 +1,13 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 import { PrismaGetUsersRepository } from "../repositories/getUsers/prismaGetUsers";
-import { GetUsersController } from "../controllers/getUsers/getUsers";
+import { GetUsersController } from "../controllers/user/getUsers/getUsers";
 import { PrismaCreateUsers } from "../repositories/createUsers/prismaCreateUsers";
-import { CreateUserController } from "../controllers/createUsers/createUsers";
+import { CreateUserController } from "../controllers/user/createUsers/createUsers";
 import { PrismaUpdateUsersRepository } from "../repositories/updateUsers/prismaUpdateUsers";
-import { UpdateUserController } from "../controllers/updateUsers/updateUser";
+import { UpdateUserController } from "../controllers/user/updateUsers/updateUser";
 import { PrismaGetUsersByIdRepository } from "../repositories/getUsersById/prismaGetUsersById";
-import { GetUsersByIdController } from "../controllers/getUsersById/getUsersById";
+import { GetUsersByIdController } from "../controllers/user/getUsersById/getUsersById";
 
 export const userRouter = express();
 
@@ -45,7 +45,7 @@ userRouter.get("/getUserById/:id", async (req, res) => {
   const prismaGetUsersById = new PrismaGetUsersByIdRepository(prisma);
   const getUsersByIdController = new GetUsersByIdController(prismaGetUsersById);
   const { body, statusCode } = await getUsersByIdController.handle({
-    params: { id: req.params.id },
+    params: req.params,
   });
 
   res.send(body).status(statusCode);

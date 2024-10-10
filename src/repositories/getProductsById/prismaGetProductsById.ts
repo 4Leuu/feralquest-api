@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { IGetProductByIdRepository } from "../../controllers/getProductById/protocols";
+import { IGetProductByIdRepository } from "../../controllers/product/getProductById/protocols";
 import { SearchByIdDTO } from "../../dtos/products";
 import { Products } from "../../models/products";
 

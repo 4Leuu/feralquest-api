@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { ICreateUserRepository } from "../../controllers/createUsers/protocols";
+import { ICreateUserRepository } from "../../controllers/user/createUsers/protocols";
 import { CreateUserDTO } from "../../dtos/users";
 import { User } from "../../models/user";
 import bcrypt from "bcrypt";

@@ -1,6 +1,6 @@
-import { SearchByIdDTO } from "../../dtos/products";
-import { Products } from "../../models/products";
-import { HttpRequest, HttpResponse } from "../protocols";
+import { SearchByIdDTO } from "../../../dtos/products";
+import { Products } from "../../../models/products";
+import { HttpRequest, HttpResponse } from "../../protocols";
 
 export interface IGetProductByIdController {
   handle(

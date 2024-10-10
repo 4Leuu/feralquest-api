@@ -1,6 +1,6 @@
-import { CreateUserDTO } from "../../dtos/users";
-import { User } from "../../models/user";
-import { HttpRequest, HttpResponse } from "../protocols";
+import { CreateUserDTO } from "../../../dtos/users";
+import { User } from "../../../models/user";
+import { HttpRequest, HttpResponse } from "../../protocols";
 import { ICreateUserRepository, ICreateUsersController } from "./protocols";
 
 export class CreateUserController implements ICreateUsersController {

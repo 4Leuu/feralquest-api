@@ -1,6 +1,6 @@
-import { CreateProductDTO } from "../../dtos/products";
-import { Products } from "../../models/products";
-import { HttpRequest, HttpResponse } from "../protocols";
+import { CreateProductDTO } from "../../../dtos/products";
+import { Products } from "../../../models/products";
+import { HttpRequest, HttpResponse } from "../../protocols";
 
 export interface ICreateProductsController {
   handle(
