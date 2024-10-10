@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import { ICreateProductsRepository } from "../../controllers/product/createProduct/protocols";
-import { CreateProductDTO } from "../../dtos/products";
-import { Products } from "../../models/products";
+import { ICreateProductsRepository } from "../../../controllers/product/createProduct/protocols";
+import { CreateProductDTO } from "../../../dtos/products";
+import { Products } from "../../../models/products";
 
 export class PrismaCreateProducts implements ICreateProductsRepository {
   constructor(private readonly prisma: PrismaClient) {}

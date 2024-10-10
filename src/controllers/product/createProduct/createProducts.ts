@@ -1,6 +1,6 @@
 import { CreateProductDTO } from "../../../dtos/products";
 import { Products } from "../../../models/products";
-import { PrismaCreateProducts } from "../../../repositories/createProduct/prismaCreateProductRepository";
+import { PrismaCreateProducts } from "../../../repositories/product/createProduct/prismaCreateProductRepository";
 import { HttpRequest, HttpResponse } from "../../protocols";
 import { ICreateProductsController } from "./protocols";
 

@@ -1,6 +1,6 @@
 import { SearchByIdDTO } from "../../../dtos/products";
 import { Products } from "../../../models/products";
-import { PrismaGetProductsById } from "../../../repositories/getProductsById/prismaGetProductsById";
+import { PrismaGetProductsById } from "../../../repositories/product/getProductsById/prismaGetProductsById";
 import { HttpRequest, HttpResponse } from "../../protocols";
 import { IGetProductByIdController } from "./protocols";
 

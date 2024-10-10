@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { IGetUsersRepository } from "../../controllers/user/getUsers/protocols";
-import { User } from "../../models/user";
+import { IGetUsersRepository } from "../../../controllers/user/getUsers/protocols";
+import { User } from "../../../models/user";
 
 export class PrismaGetUsersRepository implements IGetUsersRepository {
   constructor(private readonly prisma: PrismaClient) {}

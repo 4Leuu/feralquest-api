@@ -1,5 +1,5 @@
 import { Products } from "../../../models/products";
-import { PrismaGetProductsRepository } from "../../../repositories/getProducts/prismaGetProductsRepository";
+import { PrismaGetProductsRepository } from "../../../repositories/product/getProducts/prismaGetProductsRepository";
 import { HttpResponse } from "../../protocols";
 import { IGetProductsController } from "./protocols";
 

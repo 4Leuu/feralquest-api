@@ -1,13 +1,13 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
-import { PrismaCreateProducts } from "../repositories/createProduct/prismaCreateProductRepository";
+import { PrismaCreateProducts } from "../repositories/product/createProduct/prismaCreateProductRepository";
 import { CreateProductController } from "../controllers/product/createProduct/createProducts";
-import { PrismaGetProductsRepository } from "../repositories/getProducts/prismaGetProductsRepository";
+import { PrismaGetProductsRepository } from "../repositories/product/getProducts/prismaGetProductsRepository";
 import { GetProductsController } from "../controllers/product/getProducts/getProducts";
-import { PrismaUpdateProductsRepository } from "../repositories/updateProducts/prismaUpdateProductsRepository";
 import { UpdateProductsController } from "../controllers/product/updateProducts/updateProducts";
 import { GetProductsByIdController } from "../controllers/product/getProductById/getProductById";
-import { PrismaGetProductsById } from "../repositories/getProductsById/prismaGetProductsById";
+import { PrismaGetProductsById } from "../repositories/product/getProductsById/prismaGetProductsById";
+import { PrismaUpdateProductsRepository } from "../repositories/product/updateProducts/prismaUpdateProductsRepository";
 
 export const productRouter = express();
 

@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import { IGetProductByIdRepository } from "../../controllers/product/getProductById/protocols";
-import { SearchByIdDTO } from "../../dtos/products";
-import { Products } from "../../models/products";
+import { IGetProductByIdRepository } from "../../../controllers/product/getProductById/protocols";
+import { SearchByIdDTO } from "../../../dtos/products";
+import { Products } from "../../../models/products";
 
 export class PrismaGetProductsById implements IGetProductByIdRepository {
   constructor(private readonly prisma: PrismaClient) {}

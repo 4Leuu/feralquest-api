@@ -1,12 +1,12 @@
 import express from "express";
 import { PrismaClient } from "@prisma/client";
-import { PrismaGetUsersRepository } from "../repositories/getUsers/prismaGetUsers";
+import { PrismaGetUsersRepository } from "../repositories/user/getUsers/prismaGetUsers";
 import { GetUsersController } from "../controllers/user/getUsers/getUsers";
-import { PrismaCreateUsers } from "../repositories/createUsers/prismaCreateUsers";
+import { PrismaCreateUsers } from "../repositories/user/createUsers/prismaCreateUsers";
 import { CreateUserController } from "../controllers/user/createUsers/createUsers";
-import { PrismaUpdateUsersRepository } from "../repositories/updateUsers/prismaUpdateUsers";
+import { PrismaUpdateUsersRepository } from "../repositories/user/updateUsers/prismaUpdateUsers";
 import { UpdateUserController } from "../controllers/user/updateUsers/updateUser";
-import { PrismaGetUsersByIdRepository } from "../repositories/getUsersById/prismaGetUsersById";
+import { PrismaGetUsersByIdRepository } from "../repositories/user/getUsersById/prismaGetUsersById";
 import { GetUsersByIdController } from "../controllers/user/getUsersById/getUsersById";
 
 export const userRouter = express();

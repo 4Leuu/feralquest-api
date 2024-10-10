@@ -1,6 +1,7 @@
-import { PrismaClient, User } from "@prisma/client";
-import { IGetUsersByIdRepository } from "../../controllers/user/getUsersById/protocols";
-import { SearchByIdDTO } from "../../dtos/users";
+import { PrismaClient } from "@prisma/client";
+import { IGetUsersByIdRepository } from "../../../controllers/user/getUsersById/protocols";
+import { User } from "../../../models/user";
+import { SearchByIdDTO } from "../../../dtos/users";
 
 export class PrismaGetUsersByIdRepository implements IGetUsersByIdRepository {
   constructor(private readonly prisma: PrismaClient) {}
