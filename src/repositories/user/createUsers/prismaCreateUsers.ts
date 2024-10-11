@@ -8,13 +8,13 @@ export class PrismaCreateUsers implements ICreateUserRepository {
   constructor(private readonly prisma: PrismaClient) {}
 
   async createUser(createUserDTO: CreateUserDTO): Promise<User> {
-    const hashedPassword = await this.hashPassword(createUserDTO.password);
-
     const databaseEmail = await this.emailExistsOnDatabase(createUserDTO.email);
 
     if (databaseEmail) {
       throw new Error("Email already exists.");
     }
+
+    const hashedPassword = await this.hashPassword(createUserDTO.password);
 
     return await this.prisma.user.create({
       data: {

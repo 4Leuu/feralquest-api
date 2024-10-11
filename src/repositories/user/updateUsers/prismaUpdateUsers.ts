@@ -8,7 +8,9 @@ export class PrismaUpdateUsersRepository implements IUpdateUsersRepository {
   constructor(private readonly prisma: PrismaClient) {}
 
   async updateUsers(updateUserDTO: UpdateUserDTO): Promise<User> {
-    await this.emailExistsOnDatabase(updateUserDTO.email ?? "");
+    if (updateUserDTO.email) {
+      await this.emailExistsOnDatabase(updateUserDTO.email);
+    }
 
     if (updateUserDTO.password) {
       updateUserDTO.password = await this.hashPassword(updateUserDTO.password);
@@ -19,10 +21,10 @@ export class PrismaUpdateUsersRepository implements IUpdateUsersRepository {
         id: updateUserDTO.id,
       },
       data: {
-        firstName: updateUserDTO.firstName,
-        lastName: updateUserDTO.lastName,
-        email: updateUserDTO.email,
-        password: updateUserDTO.password,
+        ...(updateUserDTO.firstName && { firstName: updateUserDTO.firstName }),
+        ...(updateUserDTO.lastName && { lastName: updateUserDTO.lastName }),
+        ...(updateUserDTO.email && { email: updateUserDTO.email }),
+        ...(updateUserDTO.password && { password: updateUserDTO.password }),
       },
     });
 
@@ -34,17 +36,15 @@ export class PrismaUpdateUsersRepository implements IUpdateUsersRepository {
     return hashedPassword;
   }
 
-  private async emailExistsOnDatabase(email: string): Promise<boolean> {
-    const databaseEmail = await this.prisma.user.findUnique({
+  private async emailExistsOnDatabase(email: string): Promise<void> {
+    const user = await this.prisma.user.findUnique({
       where: {
         email: email,
       },
     });
 
-    if (!databaseEmail) {
+    if (!user) {
       throw new Error("Email already exists.");
     }
-
-    return !!databaseEmail;
   }
 }

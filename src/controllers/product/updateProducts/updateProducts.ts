@@ -1,6 +1,6 @@
 import { UpdateProductDTO } from "../../../dtos/products";
 import { Products } from "../../../models/products";
-import { PrismaUpdateProductsRepository } from "../../../repositories/updateProducts/prismaUpdateProductsRepository";
+import { PrismaUpdateProductsRepository } from "../../../repositories/product/updateProducts/prismaUpdateProductsRepository";
 import { HttpRequest, HttpResponse } from "../../protocols";
 import { IUpdateProductsController } from "./protocols";
 
