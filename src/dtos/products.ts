@@ -1,18 +1,19 @@
 import { z } from "zod";
+import { Sizes, Types} from "../enum/productEnum";
 
 export const createProductDTO = z.object({
   name: z.string(),
   fabric: z.string(),
   sizes: z.array(
     z.object({
-      size: z.string(),
+      size: z.enum([Sizes.P, Sizes.M, Sizes.G, Sizes.GG]),
       quantity: z.number(),
     })
   ),
   description: z.string(),
   price: z.number(),
   typeProduct: z.object({
-    type: z.string(),
+    type: z.enum([Types.CAMISETAS, Types.BONES]),
   }),
 });
 
