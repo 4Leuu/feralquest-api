@@ -9,56 +9,18 @@ datasource db {
 
 model User {
   id String @id @default(uuid())
-  firstName String
-  lastName String
+  name String
   email String @unique
   password String
+  cpf String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  role Role
+  phone Int?
 }
 
-model Product {
-  id            String   @id @default(uuid())
-  name          String   @unique
-  totalQuantity Int
-  price         Int
-  discountPrice Int?
-  isInStock     Boolean @default(true)
-  fabric        String
-  colors        Color[]
-  description   String
-  type          ProductType
+enum Role {
+  user 
+  admin
 }
 
-model Color {
-  id        String @id @default(uuid())
-  color     Colors
-  quantity  Int
-  productId String
-  product   Product @relation(fields: [productId], references: [id])
-  sizes     Size[]
-}
-
-model Size {
-  id       String @id @default(uuid())
-  size     Sizes
-  quantity Int
-  colorId  String
-  color    Color @relation(fields: [colorId], references: [id])
-}
-
-enum Sizes {
-  P
-  M
-  G
-  GG
-}
-
-enum Colors {
-  OFF_WHITE
-  BLACK
-  GREY
-}
-
-enum ProductType {
-  T_SHIRT
-  CAP
-}
