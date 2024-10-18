@@ -8,6 +8,8 @@ import { PrismaUpdateUsersRepository } from "../repositories/user/updateUsers/pr
 import { UpdateUserController } from "../controllers/user/updateUsers/updateUser";
 import { PrismaGetUsersByIdRepository } from "../repositories/user/getUsersById/prismaGetUsersById";
 import { GetUsersByIdController } from "../controllers/user/getUsersById/getUsersById";
+import { GetUserByLoginPrisma } from "../repositories/user/getUserByLogin/getUserByLogin";
+import { GetUserByLoginController } from "../controllers/user/getUserByLogin/getUserByLogin";
 
 export const userRouter = express();
 
@@ -46,6 +48,18 @@ userRouter.get("/getUserById/:id", async (req, res) => {
   const getUsersByIdController = new GetUsersByIdController(prismaGetUsersById);
   const { body, statusCode } = await getUsersByIdController.handle({
     params: req.params,
+  });
+
+  res.send(body).status(statusCode);
+});
+
+userRouter.post("/getUserByLogin", async (req, res) => {
+  const getUserByLoginPrisma = new GetUserByLoginPrisma(prisma);
+  const getUserByLoginController = new GetUserByLoginController(
+    getUserByLoginPrisma
+  );
+  const { body, statusCode } = await getUserByLoginController.handle({
+    body: req.body,
   });
 
   res.send(body).status(statusCode);
